@@ -4,6 +4,7 @@
   "description": "Sauce Demo Automation Suite",
   "main": "index.js",
   "scripts": {
+    "test-spec": "npm run test -- --spec $1",
     "test": "wdio wdio.conf.js"
   },
   "repository": {

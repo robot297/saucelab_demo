@@ -1,3 +1,9 @@
+const sauceOptions={
+    'sauce.options': {
+        seleniumVersion: '3.141.59'
+    }
+};
+
 exports.config = {
     //
     // ====================
@@ -61,18 +67,43 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'firefox',
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    capabilities: [
+        {
+            browserName: 'chrome',
+            browserVersion: 'latest',
+            platformName: 'Windows 10',
+            ...sauceOptions
+
+        // },
+        // {
+        //     browserName: 'Safari',
+        //     platformName: 'iOS',
+        //     platformVersion: '12.2',
+        //     deviceName: 'iPhone X Simulator',
+        //     deviceOrientation: 'portrait',
+        //     appiumVersion: '1.13.0',
+        //     sendKeyStrategy: 'setValue'
+        // },
+        // {
+        //     browserName: 'Chrome',
+        //     platformName: 'Android',
+        //     platformVersion: '9',
+        //     deviceName: 'Android GoogleAPI Emulator',
+        //     deviceOrientation: 'portrait',
+        }
+        // {
+        //     browserName: 'firefox',
+        //     browserVersion: 'latest',
+        //     platformName: 'Windows 10',
+        //     ...sauceOptions
+        // },
+        // {
+        //     browserName: 'safari',
+        //     browserVersion: '12.0',
+        //     platformName: 'macOS 10.14',
+        //     ...sauceOptions
+        // },
+    ],
     //
     // ===================
     // Test Configurations
